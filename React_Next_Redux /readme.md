@@ -81,3 +81,57 @@ SPA는 최초 요청시 서버에서 첫 페이지를 처리하고 이후의 라
   단점
 - 매번 페이지를 요청할 때마다 새로고침 되기 때문에 사용자 UX가 다소 떨어진다.
 - 서버에 매번 요청을 하기 때문에 트래픽, 서버 부하가 커진다.
+
+### 🔸 React 개발 시 SEO 관련 문제점
+
+- 웹크롤러가 들어왔을때 html header의 meta태그나 body 컨텐츠가 비어있기 때문에 어떠한 정보를 제공하는 페이지인지 알 수 없다.
+- 비동기로 렌더링 되는 페이지로 인해 구글봇과 같은 크롤러가 웹 페이지가의 내용을 크롤링 하기 어려워진다. ⇒ SPA의 단점
+
+### 🔸 Redux 란?
+
+**FLUX 패턴 :** 라이브러리나 프레임워크가 아닌 추상적인 개념 또는 아이디어로, 단방향 데이터 흐름 구조를 말한다.
+
+![](https://github.com/junh0328/prepare_frontend_interview/raw/main/images/flux1.PNG)
+
+- 사용자의 행위 `Action`은 `Dispatcher`에 의해 통제
+- `Dispatcher`가 `Store`를 업데이트, 변경된 `Store`에 대한 `View`를 리렌더링
+- `View`에서 `Store`에 직접 접근하지 않음, `Dispatcher`로 `Action`을 다시 보냄
+
+**MVC 패턴 :** 쌍방향적인 데이터 흐름을 강조한 패턴
+
+![](https://github.com/junh0328/prepare_frontend_interview/raw/main/images/mvc1.PNG)
+
+- 여기서 `Model`과 `View`가 복잡하게 얽혀 있다면 어떤 `Model`이 변화되어 `View`가 변경되었는지 확인하기 어려워진다.
+- 이를 해결하기 위해 단방향 데이터 흐름을 제어하는 FLUX 패턴이 등장
+
+**Redux** : 상태관리 라이브러리중 하나로 FLUX를 기반으로 하는 단방향 데이터 흐름으로 상태관리를 할 수 있다.
+
+### 🔸 Redux의 장점은 무엇이 있나요?(어떤 상황 예시 포함)
+
+- MVC 패턴의 단점으로 페이스북 알림 버그가 있다.
+  - 페이스북에 로그인 후 메시지 아이콘에 알림이 떠있다.
+  - 그 메시지 아이콘을 클릭해서 들어가면 아무런 메시지가 없다.
+  - 알림이 사라지고 몇 분 뒤 알림이 다시 나타나고 또 메시지가 나타나지 않는다.
+
+⇒ MVC 패턴의 데이터 흐름은 디버그를 하기 어렵게 만든다.
+
+- 단방향 데이터 흐름을 이용하면 어떤 액션이 `Dispatcher`에 의해 어떤 결과를 낳고 변화 되는지를 파악하기 쉬워진다.
+- 데이터가 **집중화(Centralized)** 되어 있어서 **예측 가능하며(Predictable)** 데이터 흐름이 단방향이라서 **디버깅하기 쉽다(Debuggable)**
+
+> [prepare_frontend_interview/React.md#리덕스에-대해서-아나요 ](https://github.com/junh0328/prepare_frontend_interview/blob/main/React.md#%EB%A6%AC%EB%8D%95%EC%8A%A4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%95%84%EB%82%98%EC%9A%94) > [리덕스는 왜 쓰는 건데](https://wooder2050.medium.com/%EB%A6%AC%EB%8D%95%EC%8A%A4-redux-%EB%8A%94-%EC%99%9C-%EC%93%B0%EB%8A%94-%EA%B1%B4%EB%8D%B0-2eaafce30f27) ⚡
+> [React에서 Redux가 왜 필요할까?](https://devlog-h.tistory.com/26) > [리덕스 잘 쓰고 계시나요?](https://ridicorp.com/story/how-to-use-redux-in-ridi/)
+
+### 🔸 Redux에서 준수해야할 3가지 원칙은?
+
+- **진실은 하나의 소스로부터**
+
+  애플리케이션의 모든 상태는 하나의 스토어 안에 하나의 객체 트리 구조로 저장됩니다.
+  (응용 프로그램의 전역상태는 단일 저장소 내의 트리에 저장됩니다)
+
+- **상태는 읽기 전용이다**
+
+  상태를 변화시키는 유일한 방법은 무슨 일이 벌어지는 지를 묘사하는 액션 객체를 전달하는 방법 뿐입니다.
+
+- **변화는 순수 함수로 작성되어야한다**
+
+  액션에 의해 상태 트리가 어떻게 변화하는 지를 지정하기 위해 프로그래머는 순수 리듀서를 작성해야합니다.
