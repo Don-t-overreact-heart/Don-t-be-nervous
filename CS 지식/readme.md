@@ -60,3 +60,11 @@
 ![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fa316d501-33b3-4281-95f9-f023f5178d10%2FUntitled.png?table=block&id=d060f66a-16f4-4fa6-91dd-1664668469a6&spaceId=bf553257-3c69-4092-9c73-7f33885f2092&width=1790&userId=61cc2caf-d8c2-4895-91d8-6fb0dcf0138a&cache=v2)
 
 > [prepare_frontend_interview/Data_Structure.md](https://github.com/junh0328/prepare_frontend_interview/blob/main/Data_Structure.md)
+
+- **트리가 무엇인지 구조 설명**
+    
+  - 루트 노드가 존재하며, 각각의 노드들은 루트 아래로 부속 트리를 이루며 순환 구조를 띠지 않는 비선형 자료구조를 트리라고 합니다.
+    
+- **트리 구조를 어떤 기능 개발에 응용할 수 있을지**
+    
+  - 트리의 주 목적은 탐색으로 검색 엔진, DBMS, 파일시스템, 라우터 알고리즘 등에서 사용됩니다.
