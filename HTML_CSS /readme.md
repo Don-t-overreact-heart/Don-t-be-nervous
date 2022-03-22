@@ -116,3 +116,19 @@
 // 내용 더 찾아서 정리하겠습니다.
 
 [렌더링 최적화 방법- 초기 렌더링 최적화](https://jsmokblog.tistory.com/21)
+
+- HTML 구조 설명
+    
+  - HTML문서는 루트(root) 요소를 정의하는 `<HTML>` 태그로 시작하여 `</HTML>` 태그로 끝납니다. 그 내부는 HTML 문서의 메타데이터(metadata)를 정의하는`<head>` , 웹 브라우저를 통해 보이는 내용인 `<body>` 태그로 이루어져 있습니다. 메타데이터(metadata)란 HTML 문서에 대한 정보(data)로 웹 브라우저에는 직접적으로 표현되지 않는 정보를 의미합니다.
+    
+- CSS셀렉터 기본 형태 말고 어려워보이는걸 써본적 있는지
+    
+  - 자식, 형제, 가상클래스, 가상요소 등 복잡한 선택자를 사용해 본 경험이 있습니다. 기억에 남는 것을 예시로 들면, 상단 메뉴를 구현할 때, A B C D 메뉴가 있으면, A에 hover 시 A를 제외한 B,C,D의 opacity가 낮아지는 것을 구현해야 했던 적이 있습니다. menu들을 감싼 container에 hover 될 때, 자식 선택자로 전체 menu에 opacity : 0.5를 주고, 전체 menu 중 hover 된 menu만 opacity를 1로 유지시킴으로써 해결했었습니다.
+```css
+.header-menu-wrap:hover > *{
+    opacity: 0.5;
+}
+.header-menu-wrap:hover > *:hover {
+    opacity: 1;
+}
+```
